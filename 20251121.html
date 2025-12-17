@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影资源库</title>
+    <link rel="icon" type="image/ico" href="icon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --success-color: #02ac7f;
+            --warning-color: #ffd166;
+            --danger-color: #ef476f;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.2);
+        }
+        
+        
+        /* 日历导航 */
+        .calendar-nav {
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .calendar-container {
+            max-width: 100%;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .calendar-header h2 {
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .calendar-legend {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .legend-color.today {
+            background-color: var(--danger-color);
+        }
+        
+        .legend-color.active {
+            background-color: var(--primary-color);
+        }
+        
+        .legend-color.has-data {
+            background-color: var(--success-color);
+        }
+        
+        .legend-color.no-data {
+            background-color: var(--gray-color);
+        }
+        /* 日历网格 */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .weekday-header {
+            text-align: center;
+            padding: 10px 5px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .calendar-day {
+            position: relative;
+            height: 70px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: #f8f9fa;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        .calendar-day.today {
+            border-color: var(--danger-color);
+            background: rgba(239, 71, 111, 0.1);
+        }
+        
+        .calendar-day.active {
+            border-color: var(--primary-color);
+            background: rgba(67, 97, 238, 0.1);
+        }
+        
+        .calendar-day.has-data {
+            background: rgba(6, 214, 160, 0.1);
+        }
+        
+        .calendar-day.no-data {
+            opacity: 0.5;
+            background: var(--gray-color);
+        }
+        
+        .calendar-day.other-month {
+            opacity: 1;
+        }
+        
+        .day-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .movie-count {
+            font-size: 0.8rem;
+            background: var(--success-color);
+            color: white;
+            border-radius: 10px;
+            padding: 1px 6px;
+            margin-top: 3px;
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .no-movie-count {
+            font-size: 0.8rem;
+            background: var(--gray-color);
+            color: white;
+            border-radius: 10px;
+            padding: 1px 6px;
+            margin-top: 3px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .day-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .calendar-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* 日期切换器 */
+        .date-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .date-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .date-nav-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .date-nav-btn.prev::before {
+            content: "←";
+        }
+        
+        .date-nav-btn.next::after {
+            content: "→";
+        }
+        
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+        }
+        
+        
+        header {
+            text-align: center;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95), rgba(58, 12, 163, 0.95));
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+            z-index: -1;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            font-weight: 480;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-item span:last-child {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            display: block;
+            margin-top: 8px;
+        }
+        
+        
+        .category-section {
+            margin-bottom: 5px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 15px 35px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+        }
+        .category-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 400;
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 16px rgba(67, 97, 238, 0.3);
+        }
+        
+        .category-count {
+            margin-left: auto;
+            background: var(--light-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--primary-color);
+            font-weight: 600;
+            border: 2px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        
+        .movie-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px var(--shadow-color);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .movie-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px var(--shadow-hover);
+        }
+        
+        .movie-poster-container {
+            position: relative;
+            overflow: hidden;
+            height: 380px;
+        }
+        
+        .movie-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .movie-card:hover .movie-poster {
+            transform: scale(1.1);
+        }
+        
+        .movie-poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .movie-card:hover .movie-poster-overlay {
+            opacity: 1;
+        }
+        
+        .movie-info {
+            padding: 15px;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        }
+        
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 1.6em;
+            line-height: 1.4;
+        }
+        
+        .download-type {
+            display: inline-block;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 5px;
+            border: 1px solid rgba(67, 97, 238, 0.2);
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .download-btn:hover::before {
+            left: 100%;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, var(--secondary-color), #2a0879);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--danger-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(239, 71, 111, 0.3);
+        }
+        
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 30px;
+            color: white;
+            font-size: 1rem;
+            background: linear-gradient(135deg, var(--dark-color), #16213e);
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(239, 71, 111, 0.1) 0%, transparent 50%);
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-heart {
+            color: var(--danger-color);
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .calendar-grid {
+                gap: 5px;
+            }
+            
+            .calendar-day {
+                border-radius: 6px;
+            }
+            
+            .day-number {
+                font-size: 1rem;
+            }
+            
+            .movie-count {
+                font-size: 0.6rem;
+                padding: 1px 4px;
+            }
+            
+            .calendar-legend {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .calendar-footer {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .calendar-grid {
+                gap: 3px;
+            }
+            
+            .weekday-header {
+                font-size: 0.8rem;
+                padding: 5px 2px;
+            }
+            
+            .day-number {
+                font-size: 0.9rem;
+            }
+            
+            .calendar-nav {
+                padding: 15px;
+            }
+        }
+        
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 加载动画 */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
+            <p class="subtitle">To me, you are perfect. 《真爱至上》</p>
+            
+        </header>
+        
+        
+        <nav class="calendar-nav">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h2><i class="fas fa-calendar-alt"></i> 更新日历</h2>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color today"></span>
+                            <span>今天</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color active"></span>
+                            <span>当前日期</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color has-data"></span>
+                            <span>有数据</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color no-data"></span>
+                            <span>无数据</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    
+            <div class="calendar-day today" 
+                 data-date="2025-12-17"
+                 data-count="110">
+                <div class="day-number">2025-12-17</div>
+                <div class="movie-count">新增110部</div>
+                <a href="index.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-16"
+                 data-count="77">
+                <div class="day-number">2025-12-16</div>
+                <div class="movie-count">新增77部</div>
+                <a href="20251216.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-15"
+                 data-count="72">
+                <div class="day-number">2025-12-15</div>
+                <div class="movie-count">新增72部</div>
+                <a href="20251215.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-14"
+                 data-count="13">
+                <div class="day-number">2025-12-14</div>
+                <div class="movie-count">新增13部</div>
+                <a href="20251214.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-13"
+                 data-count="103">
+                <div class="day-number">2025-12-13</div>
+                <div class="movie-count">新增103部</div>
+                <a href="20251213.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-12"
+                 data-count="10">
+                <div class="day-number">2025-12-12</div>
+                <div class="movie-count">新增10部</div>
+                <a href="20251212.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-11"
+                 data-count="2">
+                <div class="day-number">2025-12-11</div>
+                <div class="movie-count">新增2部</div>
+                <a href="20251211.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-10"
+                 data-count="76">
+                <div class="day-number">2025-12-10</div>
+                <div class="movie-count">新增76部</div>
+                <a href="20251210.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-09"
+                 data-count="61">
+                <div class="day-number">2025-12-09</div>
+                <div class="movie-count">新增61部</div>
+                <a href="20251209.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-08"
+                 data-count="75">
+                <div class="day-number">2025-12-08</div>
+                <div class="movie-count">新增75部</div>
+                <a href="20251208.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-07"
+                 data-count="88">
+                <div class="day-number">2025-12-07</div>
+                <div class="movie-count">新增88部</div>
+                <a href="20251207.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-06"
+                 data-count="8">
+                <div class="day-number">2025-12-06</div>
+                <div class="movie-count">新增8部</div>
+                <a href="20251206.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-05"
+                 data-count="79">
+                <div class="day-number">2025-12-05</div>
+                <div class="movie-count">新增79部</div>
+                <a href="20251205.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-04"
+                 data-count="12">
+                <div class="day-number">2025-12-04</div>
+                <div class="movie-count">新增12部</div>
+                <a href="20251204.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-03"
+                 data-count="84">
+                <div class="day-number">2025-12-03</div>
+                <div class="movie-count">新增84部</div>
+                <a href="20251203.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-02"
+                 data-count="11">
+                <div class="day-number">2025-12-02</div>
+                <div class="movie-count">新增11部</div>
+                <a href="20251202.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-12-01"
+                 data-count="69">
+                <div class="day-number">2025-12-01</div>
+                <div class="movie-count">新增69部</div>
+                <a href="20251201.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-30"
+                 data-count="84">
+                <div class="day-number">2025-11-30</div>
+                <div class="movie-count">新增84部</div>
+                <a href="20251130.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-29"
+                 data-count="17">
+                <div class="day-number">2025-11-29</div>
+                <div class="movie-count">新增17部</div>
+                <a href="20251129.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-28"
+                 data-count="78">
+                <div class="day-number">2025-11-28</div>
+                <div class="movie-count">新增78部</div>
+                <a href="20251128.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-27"
+                 data-count="14">
+                <div class="day-number">2025-11-27</div>
+                <div class="movie-count">新增14部</div>
+                <a href="20251127.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-26"
+                 data-count="69">
+                <div class="day-number">2025-11-26</div>
+                <div class="movie-count">新增69部</div>
+                <a href="20251126.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-25"
+                 data-count="66">
+                <div class="day-number">2025-11-25</div>
+                <div class="movie-count">新增66部</div>
+                <a href="20251125.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-24"
+                 data-count="69">
+                <div class="day-number">2025-11-24</div>
+                <div class="movie-count">新增69部</div>
+                <a href="20251124.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-23"
+                 data-count="69">
+                <div class="day-number">2025-11-23</div>
+                <div class="movie-count">新增69部</div>
+                <a href="20251123.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-22"
+                 data-count="97">
+                <div class="day-number">2025-11-22</div>
+                <div class="movie-count">新增97部</div>
+                <a href="20251122.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past active" 
+                 data-date="2025-11-21"
+                 data-count="72">
+                <div class="day-number">2025-11-21</div>
+                <div class="movie-count">新增72部</div>
+                <a href="20251121.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-20"
+                 data-count="78">
+                <div class="day-number">2025-11-20</div>
+                <div class="movie-count">新增78部</div>
+                <a href="20251120.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-19"
+                 data-count="79">
+                <div class="day-number">2025-11-19</div>
+                <div class="movie-count">新增79部</div>
+                <a href="20251119.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
+                 data-date="2025-11-18"
+                 data-count="66">
+                <div class="day-number">2025-11-18</div>
+                <div class="movie-count">新增66部</div>
+                <a href="20251118.html" class="day-link"></a>
+            </div>
+            
+                </div>
+                <div class="calendar-footer">
+                    <div class="date-range">
+                        <i class="fas fa-history"></i> 只显示最近30天数据
+                    </div>
+                    <div class="total-count">
+                        <i class="fas fa-film"></i> 最近30天累计: 1808 部电影
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        
+        <section class="category-section" 
+                data-category="最近热播综艺" 
+                data-count="2"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">最近热播综艺</h2>
+                <div class="category-count">
+                    <span>2 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="p.jpg" 
+                     alt="G闺蜜的美好旅程2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">G闺蜜的美好旅程2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/03df41d4b498" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="p.jpg" 
+                     alt="S声生不息华流季2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">S声生不息华流季2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/18c798b265a0" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 最近热播综艺, 电影数量: 2
+            </div>
+        </section>
+        <br>
+        <section class="category-section" 
+                data-category="欧美电影" 
+                data-count="4"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">欧美电影</h2>
+                <div class="category-count">
+                    <span>4 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="https://image.tmdb.org/t/p/w500/8DkQBVesn5ihgYSD66JE7gigzGt.jpg" 
+                     alt="H荒诞一天2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">H荒诞一天2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9f3def0eff3d" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="https://image.tmdb.org/t/p/w500/3BoNVD6edBhWpdFzxSdZ2PtmD4I.jpg" 
+                     alt="J家庭计划2_2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">J家庭计划2_2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e4a97c5206f4" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="https://image.tmdb.org/t/p/w500/gcWFleGQ0ZTDkXFRX6Pho8CrkOX.jpg" 
+                     alt="J杰瑟普湖2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">J杰瑟普湖2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/d504b45471c6" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="https://image.tmdb.org/t/p/w500/guwNSQWUhqkEVibHE03eQOUDY9j.jpg" 
+                     alt="L猎杀之后2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">L猎杀之后2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/b0c38da60e30" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 欧美电影, 电影数量: 4
+            </div>
+        </section>
+        <br>
+        <section class="category-section" 
+                data-category="热门短剧" 
+                data-count="65"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">热门短剧</h2>
+                <div class="category-count">
+                    <span>65 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="01.何人葬我忘川岸（50集）王康&郑初晨2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">01.何人葬我忘川岸（50集）王康&郑初晨2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/6aac9d352869" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="02.男友体检胖十斤我提了分手（70集）陈牧耶&衡涛2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">02.男友体检胖十斤我提了分手（70集）陈牧耶&衡涛2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/7fd3f127eb68" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="03.隐婚三年我让前妻高攀不起＆身份曝光后我成前妻白月光（85集）孙思伟&王思莹2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">03.隐婚三年我让前妻高攀不起＆身份曝光后我成前妻白月光（85集）孙思伟&王思莹2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/c20d2469f9f8" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="04.步步皆输局未残&天才操盘逆乾坤（56集）贺龙天&宿清浔2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">04.步步皆输局未残&天才操盘逆乾坤（56集）贺龙天&宿清浔2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/393e3266fd1f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="05.明月不识旧归途（69集）蒋辰瑞&何宇涵2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">05.明月不识旧归途（69集）蒋辰瑞&何宇涵2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2433c7c60d84" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="06.世家弃子他竟是小镇做题家（70集）何雨洋&辰星2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">06.世家弃子他竟是小镇做题家（70集）何雨洋&辰星2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/761b3427db59" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="07.小小魔王到我家（100集）李奕诺&王金宝2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">07.小小魔王到我家（100集）李奕诺&王金宝2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/7876e07dce92" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="08.今朝凤栖梧（68集）柳甯＆韩录锦2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">08.今朝凤栖梧（68集）柳甯＆韩录锦2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/38cfb65c40a5" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="09.妈妈的完美伪装（60集）彭娜莎&邓欣豪2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">09.妈妈的完美伪装（60集）彭娜莎&邓欣豪2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/57c260e707f2" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="10.双生特工（79集）魏灵尧＆庄芈僮2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">10.双生特工（79集）魏灵尧＆庄芈僮2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e02f6e25a20d" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="11.穿成女配，霸道帝王带我飞（80集）王轩＆刘蓝鸽2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">11.穿成女配，霸道帝王带我飞（80集）王轩＆刘蓝鸽2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/40de94895ebb" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="12.掌心窥爱（79集）刘萧旭＆兰岚2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">12.掌心窥爱（79集）刘萧旭＆兰岚2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/a4c9886b920c" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="13.偷听心声后我带全家逆天改命（89集）郑铂瀚＆戚玉洁2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">13.偷听心声后我带全家逆天改命（89集）郑铂瀚＆戚玉洁2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2cb4e00306e0" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="14.第72页的偷恋（75集）陈政阳＆龚芳妮2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">14.第72页的偷恋（75集）陈政阳＆龚芳妮2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/702dc578aa7b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="15.表姑娘进京了（74集）陈政阳＆王子甲2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">15.表姑娘进京了（74集）陈政阳＆王子甲2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/d0befb85d9e7" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="16.今日宜嫁娶（68集）曹景皓＆牟思羽2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">16.今日宜嫁娶（68集）曹景皓＆牟思羽2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/58de755fb9ae" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="17.缚深情（60集）詹琸＆樊楚琦2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">17.缚深情（60集）詹琸＆樊楚琦2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/783923b2b5e8" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="18.心动的神（80集）千喆＆王艺阳2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">18.心动的神（80集）千喆＆王艺阳2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/864de19aa51e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="19.流放路上显灵我被当成老祖宗（80集）孟欢&冯文栋2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">19.流放路上显灵我被当成老祖宗（80集）孟欢&冯文栋2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/c41aab7e315a" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="20.群友是神仙我是团宠代购（80集）毕馨月&尼玛坚赞2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">20.群友是神仙我是团宠代购（80集）毕馨月&尼玛坚赞2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/cfab508aef68" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="21.无敌皇太子（85集）孙文博&索菲2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">21.无敌皇太子（85集）孙文博&索菲2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/be542f41b0f3" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="22.长生我在教坊司千秋万载（80集）陆曼蔓&孙单恩2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">22.长生我在教坊司千秋万载（80集）陆曼蔓&孙单恩2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/5607197b2395" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">高分</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="23.后娘当家：王爷喊着要入赘（81集）刘国豪＆书雪漫2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">23.后娘当家：王爷喊着要入赘（81集）刘国豪＆书雪漫2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/a77943273152" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="24.江南何处又相逄（81集）喻浩洋＆周玉玲2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">24.江南何处又相逄（81集）喻浩洋＆周玉玲2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/b1759e979cef" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="25.闪婚后，齐先生的爱意藏不住（85集）景文＆李雪阳2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">25.闪婚后，齐先生的爱意藏不住（85集）景文＆李雪阳2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/271a588a502d" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="26.穿书后我靠干饭驯服甜翻暴君（99集）李泽雨＆钟雨瑾2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">26.穿书后我靠干饭驯服甜翻暴君（99集）李泽雨＆钟雨瑾2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/01dbba581375" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="27.重生小公主带你飞（83集）季康＆杨心妍2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">27.重生小公主带你飞（83集）季康＆杨心妍2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8b7d1177eeba" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="28.闺蜜双穿变妯娌（70集）文琪＆雨岑2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">28.闺蜜双穿变妯娌（70集）文琪＆雨岑2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9e1f854209b9" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="29.爱意无需暗语（60集）臧晓嘉＆卢彦觉浅2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">29.爱意无需暗语（60集）臧晓嘉＆卢彦觉浅2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/187e9109bac3" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="30.投资天命族人，我实力是全族总和（76集）张闻宇＆一然2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">30.投资天命族人，我实力是全族总和（76集）张闻宇＆一然2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8e34a5e1c508" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="31.神明下凡体验人间被你们送去祭天（75集）姜晨＆蒋菁煜2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">31.神明下凡体验人间被你们送去祭天（75集）姜晨＆蒋菁煜2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/32383f76ed74" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="32.怀孕后她高不可攀（60集）李木扬＆李虹艺2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">32.怀孕后她高不可攀（60集）李木扬＆李虹艺2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/79faab6c32b8" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="33.她从南疆来（54集）段平＆成梓菡2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">33.她从南疆来（54集）段平＆成梓菡2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/077784daeeb4" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="34.提升员工工资！你说我扰乱市场（80集）胡程耀＆冷梓昕2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">34.提升员工工资！你说我扰乱市场（80集）胡程耀＆冷梓昕2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/98f944a71d9d" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="35.乡野巅峰人生（80集）秦英皓＆路露2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">35.乡野巅峰人生（80集）秦英皓＆路露2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/edae19bdea7e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="36.穿成小福宝我带帅爹逆风翻盘（90集）谷笑慧&王家霖2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">36.穿成小福宝我带帅爹逆风翻盘（90集）谷笑慧&王家霖2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/fad111ca45f9" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="37.从弃夫到商界霸主（80集）邵博君&李河源2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">37.从弃夫到商界霸主（80集）邵博君&李河源2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/d7da6f46ba5b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="38.分手后我得到未来日记（97集）邵迪&卢艺煊2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">38.分手后我得到未来日记（97集）邵迪&卢艺煊2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/ab3690992c12" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="39.校花替妹还债，发现我竟是神豪（83集）王廷予&李俊良&月野兔2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">39.校花替妹还债，发现我竟是神豪（83集）王廷予&李俊良&月野兔2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f9c353611698" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="40.原来我是仙二代（63集）王纯&夏巳傲2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">40.原来我是仙二代（63集）王纯&夏巳傲2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8ef420874dd3" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="41.重生后妈妈夺回被偷人生（36集）邱邱&周杨芊芊2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">41.重生后妈妈夺回被偷人生（36集）邱邱&周杨芊芊2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/0230c18dbe2f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="42.刻在我心底的名字（45集）萨钢云＆曾和惠子2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">42.刻在我心底的名字（45集）萨钢云＆曾和惠子2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/81a90f86cf0d" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="43.重生之不做背锅侠（79集）怡宝＆徐培淇2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">43.重生之不做背锅侠（79集）怡宝＆徐培淇2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/126478d720b7" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="44.青川不改味依旧（81集）曾希瑭＆骆思琪2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">44.青川不改味依旧（81集）曾希瑭＆骆思琪2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/210559243198" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="45.不肖子孙来拜见，二十二岁太奶奶（60集）柳亚然＆付柔美琦2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">45.不肖子孙来拜见，二十二岁太奶奶（60集）柳亚然＆付柔美琦2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/048bbc94edc7" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="46.两界穿梭尽入我怀＆两界穿梭一个馒头换媳妇（71集）常宵宇＆孙同钰2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">46.两界穿梭尽入我怀＆两界穿梭一个馒头换媳妇（71集）常宵宇＆孙同钰2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2b4d40bd179b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="47.萌宝助攻：拐个爹地送妈咪（76集）李佳琛（秦琛琛）＆刘欣悦2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">47.萌宝助攻：拐个爹地送妈咪（76集）李佳琛（秦琛琛）＆刘欣悦2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/325807f9e783" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="48.错把真龙当废柴（71集）博之＆张翎月2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">48.错把真龙当废柴（71集）博之＆张翎月2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8c2df3bd7154" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="49.觉醒后才知我是女神白月光（62集）黄昱清＆铭汐2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">49.觉醒后才知我是女神白月光（62集）黄昱清＆铭汐2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2310cf031a97" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">高分</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="50.最强班主任竟是体育老师（79集）陈彦霖＆李冰雪2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">50.最强班主任竟是体育老师（79集）陈彦霖＆李冰雪2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f6b2d5191728" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="51.黄金迷局＆黄金风暴（56集）张宇翔&黄宁馨2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">51.黄金迷局＆黄金风暴（56集）张宇翔&黄宁馨2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8988654f2351" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">高分</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="52.七零美人正芳华（70集）李佳琛（秦琛琛）&李博洋2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">52.七零美人正芳华（70集）李佳琛（秦琛琛）&李博洋2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2b67a69d6e83" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="53.当我不再是我（70集）韩子浩&维尼2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">53.当我不再是我（70集）韩子浩&维尼2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/7362dc85e70f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="54.将爱正晚秋（59集）李威斯&王珊珊&胡璇璇2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">54.将爱正晚秋（59集）李威斯&王珊珊&胡璇璇2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4236616e0217" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="55.逆光重逢（68集）李瀚均&武鸿蕊2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">55.逆光重逢（68集）李瀚均&武鸿蕊2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9a0d7f9fd108" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="56.棋落无人诉情长（72集）杨千婵&项宇航2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">56.棋落无人诉情长（72集）杨千婵&项宇航2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/893462f47d51" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="57.谁动了我的宝壶（31集）赖艺&赵琳苑2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">57.谁动了我的宝壶（31集）赖艺&赵琳苑2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2d8277e29a5e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="58.遗落的珍珠（61集）徐棵二&耿大勇2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">58.遗落的珍珠（61集）徐棵二&耿大勇2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e462fb1816fa" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="59.一觉穿到八年后，老公宠我无下限（80集）程汁＆张笑颜2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">59.一觉穿到八年后，老公宠我无下限（80集）程汁＆张笑颜2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f45541667f77" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="60.悠然见晴天（70集）韩旭＆王梦佳2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">60.悠然见晴天（70集）韩旭＆王梦佳2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/a0e705bb04d5" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="61.别慌老祖她法力无边＆我于凡尘登仙（55集）朱哲人＆杨梓依2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">61.别慌老祖她法力无边＆我于凡尘登仙（55集）朱哲人＆杨梓依2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/49e456b52a28" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="62.归人何处＆我女儿在哪儿（63集）田娜＆梁洁2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">62.归人何处＆我女儿在哪儿（63集）田娜＆梁洁2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4e8ba2e8c724" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="63.假面下的反击＆她的伪装战书（60集）王雷方＆潘钰涵2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">63.假面下的反击＆她的伪装战书（60集）王雷方＆潘钰涵2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4d1b831c1553" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="64.烽火烬红妆＆烽火红颜（75集）王振＆徐泠若2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">64.烽火烬红妆＆烽火红颜（75集）王振＆徐泠若2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/62930e7e4f72" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="a.png" 
+                     alt="65.面具之下仇敌之上＆摘下面具之日（53集）周彦哲＆牟映竹2025" 
+                     class="movie-poster"
+                     onerror="this.src='p.jpg'">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">65.面具之下仇敌之上＆摘下面具之日（53集）周彦哲＆牟映竹2025</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/c40feff692e5" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 热门短剧, 电影数量: 65
+            </div>
+        </section>
+        
+        
+        <footer>
+            <div class="footer-content">
+                <p>© 2025 最新影视资源库  </p>
+                <p style="margin-top: 15px; font-size: 1rem;">
+                    <i class="fas fa-heart footer-heart"></i> 更新时间: 2025-12-17 22:36:10<i class="fas fa-heart footer-heart"></i>
+                    
+                </p>
+            </div>
+        </footer>
+        
+    </div>
+    
+    <script>
+        
+        // 页面加载效果
+        window.addEventListener('load', function() {
+            console.log('页面加载完成');
+            
+            // 立即隐藏加载动画
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+            
+            // 确保所有分类都可见
+            setTimeout(() => {
+                const sections = document.querySelectorAll('.category-section');
+                sections.forEach(section => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                    section.style.display = 'block';
+                    section.style.visibility = 'visible';
+                });
+                
+                // 记录分类信息
+                console.log('页面分类数量:', sections.length);
+                sections.forEach((section, index) => {
+                    const category = section.getAttribute('data-category');
+                    const count = section.getAttribute('data-count');
+                    console.log(`分类 ${index + 1}: ${category}, 电影数量: ${count}`);
+                });
+            }, 100);
+        });
+        
+        // 添加点击效果 - 优化版本
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('download-btn')) {
+                    const downloadBtn = this.querySelector('.download-btn');
+                    if (downloadBtn && downloadBtn.href && downloadBtn.href !== '#') {
+                        // 显示点击效果
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 200);
+                        
+                        // 打开链接
+                        setTimeout(() => {
+                            window.open(downloadBtn.href, '_blank');
+                        }, 200);
+                    }
+                }
+            });
+        });
+        
+        // 更稳健的Intersection Observer
+        let observer = null;
+        try {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有分类区域，但确保不会隐藏它们
+            document.querySelectorAll('.category-section').forEach(section => {
+                // 先确保元素可见
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                // 延迟添加观察器，确保内容已渲染
+                setTimeout(() => {
+                    if (observer) {
+                        observer.observe(section);
+                    }
+                }, 500);
+            });
+        } catch (e) {
+            console.log('Intersection Observer 初始化失败:', e);
+            // 如果Observer失败，确保所有内容可见
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            });
+        }
+        
+        // 卡片悬停效果增强
+        const cards = document.querySelectorAll('.movie-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '100';
+            });
+            card.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    card.style.zIndex = '1';
+                }, 300);
+            });
+        });
+        
+        // 添加调试功能
+        function showAllSections() {
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                section.style.display = 'block';
+                section.style.opacity = '1';
+                section.style.visibility = 'visible';
+                section.style.height = 'auto';
+            });
+            console.log('已显示所有分类区域，数量:', sections.length);
+        }
+        
+        // 页面加载完成后执行
+        setTimeout(showAllSections, 1000);
+        
+        // 添加键盘快捷键调试 (Ctrl+Shift+D)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+                const debugInfo = document.getElementById('debug-info');
+                if (debugInfo) {
+                    debugInfo.style.display = debugInfo.style.display === 'none' ? 'block' : 'none';
+                }
+                showAllSections();
+            }
+        });
+        
+    </script>
+</body>
+</html>
