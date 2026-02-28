@@ -751,7 +751,7 @@
         
         <header>
             <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
-            <p class="subtitle">I'm king of the world! 《泰坦尼克号》</p>
+            <p class="subtitle">有些人浅薄，有些人金玉其外而败絮其中。 《怦然心动》</p>
             
         </header>
         
@@ -782,11 +782,19 @@
                 <div class="calendar-grid">
                     
             <div class="calendar-day today active" 
+                 data-date="2026-02-28"
+                 data-count="68">
+                <div class="day-number">2026-02-28</div>
+                <div class="movie-count">新增68部</div>
+                <a href="index.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
                  data-date="2026-02-27"
                  data-count="67">
                 <div class="day-number">2026-02-27</div>
                 <div class="movie-count">新增67部</div>
-                <a href="index.html" class="day-link"></a>
+                <a href="202602/20260227.html" class="day-link"></a>
             </div>
             
             <div class="calendar-day past" 
@@ -1013,21 +1021,13 @@
                 <a href="202601/20260130.html" class="day-link"></a>
             </div>
             
-            <div class="calendar-day past" 
-                 data-date="2026-01-29"
-                 data-count="84">
-                <div class="day-number">2026-01-29</div>
-                <div class="movie-count">新增84部</div>
-                <a href="202601/20260129.html" class="day-link"></a>
-            </div>
-            
                 </div>
                 <div class="calendar-footer">
                     <div class="date-range">
                         <i class="fas fa-history"></i> 只显示最近30天数据
                     </div>
                     <div class="total-count">
-                        <i class="fas fa-film"></i> 最近30天累计: 2163 部电影
+                        <i class="fas fa-film"></i> 最近30天累计: 2147 部电影
                     </div>
                 </div>
             </div>
@@ -1035,14 +1035,14 @@
         
         
         <section class="category-section" 
-                data-category="国产电影" 
+                data-category="日韩剧集" 
                 data-count="1"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
                     <i class="fas fa-film"></i>
                 </div>
-                <h2 class="category-title">国产电影</h2>
+                <h2 class="category-title">日韩剧集</h2>
                 <div class="category-count">
                     <span>1 部影片</span>
                 </div>
@@ -1050,19 +1050,80 @@
             
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="Z钟表馆事件2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">Z钟表馆事件2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/ebb2726e9d44" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 日韩剧集, 电影数量: 1
+            </div>
+        </section>
+        <br>
+        <section class="category-section" 
+                data-category="欧美电影" 
+                data-count="2"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">欧美电影</h2>
+                <div class="category-count">
+                    <span>2 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="https://image.tmdb.org/t/p/w500/4vWqIdoBavo1htxmxlScDniOS9C.jpg" 
+                     alt="Z眨眼之间2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">Z眨眼之间2026</h3>
+                <span class="download-type">百度</span>
+                <a href="https://pan.baidu.com/s/1-hkbH2_daf_JUOtEPcAW8g?pwd=6666" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
         <div class="movie-card">
             <div class="badge">新上映</div>
             <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/wz7DchRv3sXIH87LyjhhxJdrVGk.jpg" 
-                     alt="N匿杀2026" 
+                <img src="https://image.tmdb.org/t/p/w500/4vWqIdoBavo1htxmxlScDniOS9C.jpg" 
+                     alt="Z眨眼之间2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">N匿杀2026</h3>
+                <h3 class="movie-title">Z眨眼之间2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/a67f2c16dd24" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/ed98e613b4f6" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1072,139 +1133,13 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 国产电影, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="日韩电影" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">日韩电影</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/tQhOoYRezSxrOne8HKJ8QeqXOWU.jpg" 
-                     alt="H后来的我们2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">H后来的我们2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/934d17591d58" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 日韩电影, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="最近热播电视剧" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">最近热播电视剧</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/mwzDApMZAGeYCEVjhegKvCzDX0W.jpg" 
-                     alt="C除恶2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">C除恶2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/4bb15283fec1" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 最近热播电视剧, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="欧美剧集" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">欧美剧集</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            <div class="badge">热门</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="D帝王计划怪兽遗产第二季2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D帝王计划怪兽遗产第二季2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/37d17f41b6a9" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美剧集, 电影数量: 1
+                分类: 欧美电影, 电影数量: 2
             </div>
         </section>
         <br>
         <section class="category-section" 
                 data-category="热门短剧" 
-                data-count="63"
+                data-count="66"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
@@ -1212,234 +1147,25 @@
                 </div>
                 <h2 class="category-title">热门短剧</h2>
                 <div class="category-count">
-                    <span>63 部影片</span>
+                    <span>66 部影片</span>
                 </div>
             </div>
             
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="01.天天腻歪的夫君居然修无情道（60集）王梓亦＆王燕飞2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">01.天天腻歪的夫君居然修无情道（60集）王梓亦＆王燕飞2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/39848ee1377b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="02.心动热潮（62集）梁思伟＆锦子2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">02.心动热潮（62集）梁思伟＆锦子2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/0deb08153c4e" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
             
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="03.华丽的缰绳（76集）马小宇＆胡原君2026" 
+                     alt="01.婚内初痒（100集）王轩＆陈思澈2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">03.华丽的缰绳（76集）马小宇＆胡原君2026</h3>
+                <h3 class="movie-title">01.婚内初痒（100集）王轩＆陈思澈2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/afcb352d2fce" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="04.锦绣安然（80集）刘晓庆＆金珈2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">04.锦绣安然（80集）刘晓庆＆金珈2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/6546f5aac7f3" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="05.顾少，夫人又在拆家啦（78集）希尔力＆常丹丹2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">05.顾少，夫人又在拆家啦（78集）希尔力＆常丹丹2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/c2c97bd7b8ba" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="06.一睁眼，偏执太子夺我入东宫（75集）李佑霖＆墨凝2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">06.一睁眼，偏执太子夺我入东宫（75集）李佑霖＆墨凝2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/5cf9101833ca" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="07.侯门主母我不当了，你我也不救了（80集）鞠昊潼＆赵昱萱2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">07.侯门主母我不当了，你我也不救了（80集）鞠昊潼＆赵昱萱2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/088c249ee979" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="08.退婚当天，我闪婚真大佬（60集）向北&张亿&玖玖2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">08.退婚当天，我闪婚真大佬（60集）向北&张亿&玖玖2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/6cd229c8bc18" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="09.要什么江湖百美图，我有兵器谱（90集）符骞文＆郑奕2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">09.要什么江湖百美图，我有兵器谱（90集）符骞文＆郑奕2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/189ee711e196" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">热门</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="10.攻略那个千金大小姐（70集）龙钇辰＆任娄怡2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">10.攻略那个千金大小姐（70集）龙钇辰＆任娄怡2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/cc9c5fd8706d" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="11.西游，错把玉帝当亲爹（60集）动漫2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">11.西游，错把玉帝当亲爹（60集）动漫2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/eb7dc31726e0" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">收藏</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="12.夜的多巴胺（74集）俞棣＆陆文欣2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">12.夜的多巴胺（74集）俞棣＆陆文欣2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/0f79ebd91d30" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/194829007cb2" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1450,53 +1176,15 @@
             <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="13.我当这么久的反派，你告诉我被读心了（71集）宋益凡＆姜瑶2026" 
+                     alt="02.妹妹结婚，我也结（74集）宋益凡＆姜瑶＆周益洋＆左馨2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">13.我当这么久的反派，你告诉我被读心了（71集）宋益凡＆姜瑶2026</h3>
+                <h3 class="movie-title">02.妹妹结婚，我也结（74集）宋益凡＆姜瑶＆周益洋＆左馨2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/e870ec49f92c" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="14.纨绔难驯，夫人她手拿把掐（76集）李是侥＆石雪婧2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">14.纨绔难驯，夫人她手拿把掐（76集）李是侥＆石雪婧2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/5a56e065e963" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="15.乖巧女人最好命，太子欲罢不能（80集）刘沛良＆胡冬晴2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">15.乖巧女人最好命，太子欲罢不能（80集）刘沛良＆胡冬晴2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/821e7d86e02b" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/378aea12b239" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1507,15 +1195,15 @@
             <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="16.攻略的男神发现我是富婆了（65集）梅梓睿＆程琳淼2026" 
+                     alt="03.魈主（59集）闵星翰＆汪海敏2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">16.攻略的男神发现我是富婆了（65集）梅梓睿＆程琳淼2026</h3>
+                <h3 class="movie-title">03.魈主（59集）闵星翰＆汪海敏2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/27d054782984" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/f7ba9159bc06" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1523,18 +1211,18 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="17.掌公主下山，太无敌了（90集）张宸硕＆彭千玲2026" 
+                     alt="04.老婆瘾（64集）王梓亦＆于雨桐2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">17.掌公主下山，太无敌了（90集）张宸硕＆彭千玲2026</h3>
+                <h3 class="movie-title">04.老婆瘾（64集）王梓亦＆于雨桐2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/e3a8b2e30a83" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/ebc59cc9a0a2" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1542,246 +1230,18 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="18.她以身入局清算一切（80集）祁圣翰＆李明明2026" 
+                     alt="05.分手后，太子妈哭求我复合（74集）李梦然＆李若琪2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">18.她以身入局清算一切（80集）祁圣翰＆李明明2026</h3>
+                <h3 class="movie-title">05.分手后，太子妈哭求我复合（74集）李梦然＆李若琪2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/790d95639d8f" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="19.寒枝待鹤鸣（70集）鲁紫萱&邓嘉伦2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">19.寒枝待鹤鸣（70集）鲁紫萱&邓嘉伦2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/067cdc56bc84" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">收藏</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="20.我帮校花造机甲，震惊科学界（61集）张晗&王为洋2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">20.我帮校花造机甲，震惊科学界（61集）张晗&王为洋2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/9f6913c28cea" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="21.学霸穿书学渣，我靠满分颠覆人生（85集）余戬&王澄玥2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">21.学霸穿书学渣，我靠满分颠覆人生（85集）余戬&王澄玥2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/76410f2bc541" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="22.八零喜事，冷面硬汉追妻十分甜（60集）付予&石佳2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">22.八零喜事，冷面硬汉追妻十分甜（60集）付予&石佳2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/54382e2b7a86" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="23.成女帝心腹后我无敌了（71集）张婉琳&栗青2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">23.成女帝心腹后我无敌了（71集）张婉琳&栗青2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/89582a6ef0d8" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="24.恐怖道观：我只抓大凶之物（79集）马子超&钟西滟2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">24.恐怖道观：我只抓大凶之物（79集）马子超&钟西滟2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/6c333b19f8ce" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">热门</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="25.棠心灼灼（78集）孙懿飞＆牛博宇2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">25.棠心灼灼（78集）孙懿飞＆牛博宇2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/7ec313dbd4ac" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="26.契约太太要悔婚，全家老小不干了（83集）苏畅＆魏予欣2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">26.契约太太要悔婚，全家老小不干了（83集）苏畅＆魏予欣2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/7eeae20203d4" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="27.重生古代成为全村的希望（70集）李星辰＆张棠2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">27.重生古代成为全村的希望（70集）李星辰＆张棠2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/49fc2661155b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">收藏</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="28.全民挑战：我靠演技当黄牛（80集）王蕴成＆袁传琪2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">28.全民挑战：我靠演技当黄牛（80集）王蕴成＆袁传琪2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/17b9e0dccc8b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="29.七零大旱，我家地下挖出一条暗河（70集）郝宇＆徐格男2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">29.七零大旱，我家地下挖出一条暗河（70集）郝宇＆徐格男2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/da7b563c71dc" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="30.氪金大户纵横商海，老板们求我别创业了（80集）王镱深＆汤玉姣2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">30.氪金大户纵横商海，老板们求我别创业了（80集）王镱深＆汤玉姣2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/f0c56af90c87" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/f96a02bdd356" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1792,34 +1252,15 @@
             <div class="badge">经典</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="31.一诺山河轻（60集）熊玉婷＆翟炯2026" 
+                     alt="06.月落江野（72集）陈瑞丰＆韩佳卉2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">31.一诺山河轻（60集）熊玉婷＆翟炯2026</h3>
+                <h3 class="movie-title">06.月落江野（72集）陈瑞丰＆韩佳卉2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/96e3112d06db" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">收藏</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="32.穿书后，荣家团宠赢麻了（60集）米卓清＆赵泽帆2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">32.穿书后，荣家团宠赢麻了（60集）米卓清＆赵泽帆2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/d2509c813470" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/c3725ef914b3" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1830,53 +1271,15 @@
             
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="33.反派更宠谁还要男主啊（80集）景歆＆崔旭阳2026" 
+                     alt="07.岁岁明安（80集）胡晓天＆常丹丹2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">33.反派更宠谁还要男主啊（80集）景歆＆崔旭阳2026</h3>
+                <h3 class="movie-title">07.岁岁明安（80集）胡晓天＆常丹丹2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/369525c3444f" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="34.口是心绯（71集）姜皓之＆林筱艾2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">34.口是心绯（71集）姜皓之＆林筱艾2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/2645d4a3b2e2" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="35.摊牌了，我的保镖是满级大佬（78集）喻浩洋＆陈文君2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">35.摊牌了，我的保镖是满级大佬（78集）喻浩洋＆陈文君2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/580345335149" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/c57b884da0f8" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1887,148 +1290,15 @@
             <div class="badge">经典</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="36.好感度系统：后妈今天洗白了吗（80集）刘蔓莉＆刘沛良2026" 
+                     alt="08.财阀小娇妻：大叔，蓄谋已久日日哄＆财阀小娇妻大叔蓄谋已久日日哄（70集）李梦然＆杨帆2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">36.好感度系统：后妈今天洗白了吗（80集）刘蔓莉＆刘沛良2026</h3>
+                <h3 class="movie-title">08.财阀小娇妻：大叔，蓄谋已久日日哄＆财阀小娇妻大叔蓄谋已久日日哄（70集）李梦然＆杨帆2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/8ca26388ec60" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="37.重生七六：带全族奔小康（80集）王钰臻＆何怡婷2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">37.重生七六：带全族奔小康（80集）王钰臻＆何怡婷2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/0e14cbffe786" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="38.炽热燃情（60集）王子怡＆张泽渊2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">38.炽热燃情（60集）王子怡＆张泽渊2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/d6026313da34" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">热门</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="39.妈，这次我考上状元了（69集）凌梓涵＆赵婉菡2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">39.妈，这次我考上状元了（69集）凌梓涵＆赵婉菡2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/3f7a2afdb538" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">经典</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="40.我病弱真千金，会亿点玄学怎么了（80集）武鸿蕊＆刘泽坤2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">40.我病弱真千金，会亿点玄学怎么了（80集）武鸿蕊＆刘泽坤2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/8a7ecab71d9d" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">经典</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="41.叛逆婆婆带我霸气休夫（71集）袁华＆黄甜2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">41.叛逆婆婆带我霸气休夫（71集）袁华＆黄甜2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/e87cfcb16cee" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">经典</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="42.别惹大小姐，她是八大豪门团宠（61集）牛静捷＆韩子帆2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">42.别惹大小姐，她是八大豪门团宠（61集）牛静捷＆韩子帆2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/812e9531b939" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="43.财富自由，从看到未来信息开始（113集）朱佳琪＆孙宇2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">43.财富自由，从看到未来信息开始（113集）朱佳琪＆孙宇2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/82ce672f22eb" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/894a05069844" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2039,186 +1309,15 @@
             <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="44.狂蟒深渊：无人区异闻（71集）赵忆安＆何俊雄2026" 
+                     alt="09.辞仙骨（79集）黄宥天＆觅七2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">44.狂蟒深渊：无人区异闻（71集）赵忆安＆何俊雄2026</h3>
+                <h3 class="movie-title">09.辞仙骨（79集）黄宥天＆觅七2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/27bd0ac53f54" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="45.神眼觉醒后，不暴富都难（103集）吴梦媛＆清风2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">45.神眼觉醒后，不暴富都难（103集）吴梦媛＆清风2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/ef5ef105f74c" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="46.赘婿他过分强大（51集）苏俊宇＆韩悦2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">46.赘婿他过分强大（51集）苏俊宇＆韩悦2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/1dbc1df9b370" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="47.大佬归来，黑千金她专治不服（71集）李冰冰＆盛一辰2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">47.大佬归来，黑千金她专治不服（71集）李冰冰＆盛一辰2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/5f77b40e318a" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="48.反派：我被众女偷听心声（60集）柯博伦＆胡嘉倪2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">48.反派：我被众女偷听心声（60集）柯博伦＆胡嘉倪2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/6af530952f7f" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="49.极品一家我终于逃出牢笼（61集）陈贞妮＆京九2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">49.极品一家我终于逃出牢笼（61集）陈贞妮＆京九2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/c8ef87f1f6cc" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="50.被赶出家门后，我爆红全网（61集）骆雨＆董泽宇2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">50.被赶出家门后，我爆红全网（61集）骆雨＆董泽宇2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/b96d8932aa6b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="51.妻子用APP操控我后（70集）孙淇渲＆肖琪峰2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">51.妻子用APP操控我后（70集）孙淇渲＆肖琪峰2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/9e9c7d2add0b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="52.神医下山即无敌（85集）刘昊哲＆黄小再2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">52.神医下山即无敌（85集）刘昊哲＆黄小再2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/387d700c5a28" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/shortvideo.png" 
-                     alt="53.重生后我拆穿婆婆谎言（40集）张龄月＆潘宗琴2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">53.重生后我拆穿婆婆谎言（40集）张龄月＆潘宗琴2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/b5639e5cddd1" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/ff883d4a473a" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2229,15 +1328,15 @@
             <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="54.说好的出狱回家，怎么逼我延续香火（72集）钟小金＆童羿琅2026" 
+                     alt="10.混沌仙棺（81集）都钊＆苏凝2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">54.说好的出狱回家，怎么逼我延续香火（72集）钟小金＆童羿琅2026</h3>
+                <h3 class="movie-title">10.混沌仙棺（81集）都钊＆苏凝2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/e0bc643fe00b" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/e1d09af0314d" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2248,15 +1347,15 @@
             <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="55.我敬老公一杯酒（58集）李曾＆章凯2026" 
+                     alt="11.首富千金狂追二龙湖浩哥之他不干（62集）刘萌萌&张浩2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">55.我敬老公一杯酒（58集）李曾＆章凯2026</h3>
+                <h3 class="movie-title">11.首富千金狂追二龙湖浩哥之他不干（62集）刘萌萌&张浩2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/dcbf202b349c" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/e1aedf059644" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2267,15 +1366,15 @@
             
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="56.错付后她锋芒毕露（55集）钟雨瑾＆陆宇2026" 
+                     alt="12.拉婚（53集）程澄＆关芯2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">56.错付后她锋芒毕露（55集）钟雨瑾＆陆宇2026</h3>
+                <h3 class="movie-title">12.拉婚（53集）程澄＆关芯2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/22f30efa3289" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/f9157aec2b4c" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2286,15 +1385,15 @@
             
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="57.午夜试睡员（27集）钟俞＆王化博2026" 
+                     alt="13.我的闺蜜是太后（80集）杜子元＆苏语桐2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">57.午夜试睡员（27集）钟俞＆王化博2026</h3>
+                <h3 class="movie-title">13.我的闺蜜是太后（80集）杜子元＆苏语桐2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/95261daf1f54" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/58880ad606b3" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2302,18 +1401,151 @@
         
 
         <div class="movie-card">
-            <div class="badge">热门</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="58.终点线外，再无回头（70集）李君扬＆钟小淇2026" 
+                     alt="14.逆命成凰（70集）刘轩＆韩录锦2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">58.终点线外，再无回头（70集）李君扬＆钟小淇2026</h3>
+                <h3 class="movie-title">14.逆命成凰（70集）刘轩＆韩录锦2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/f58ca5e67f6a" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/92394126c01b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="15.我曾爱你比恨深（60集）张添景＆赵早儿2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">15.我曾爱你比恨深（60集）张添景＆赵早儿2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4173745637f6" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="16.婚既钟情（83集）马子毅＆方思畅2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">16.婚既钟情（83集）马子毅＆方思畅2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/61912f3eb198" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="17.重生后，前夫他变成了作精（80集）蓝博＆王路晴2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">17.重生后，前夫他变成了作精（80集）蓝博＆王路晴2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/329a65fabb3e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="18.拼然心动（56集）张磊＆张紫璇2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">18.拼然心动（56集）张磊＆张紫璇2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/6fce69364643" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="19.亲爱的撒旦小姐（70集）朱永强＆刘雨露2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">19.亲爱的撒旦小姐（70集）朱永强＆刘雨露2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/7f8fa0513397" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="20.仙界修炼万年，归来的我举世无敌（64集）孙虎城＆李思源2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">20.仙界修炼万年，归来的我举世无敌（64集）孙虎城＆李思源2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/ecb0c3fbfc92" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="21.三毛流浪记之烽火连城（71集）夏天＆李嘉钰2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">21.三毛流浪记之烽火连城（71集）夏天＆李嘉钰2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/d34e9a870915" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2324,15 +1556,91 @@
             <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="59.重生后我用折扣系统起飞了（63集）孙钰涵＆朱墨宸＆宋喃2026" 
+                     alt="22.一袭水袖断红尘（71集）周颖＆祁圣翰2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">59.重生后我用折扣系统起飞了（63集）孙钰涵＆朱墨宸＆宋喃2026</h3>
+                <h3 class="movie-title">22.一袭水袖断红尘（71集）周颖＆祁圣翰2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/5b2d6fc072a7" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/562a80e38562" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="23.我变坏了，也无敌了（80集）徐凯鑫＆梨小娜2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">23.我变坏了，也无敌了（80集）徐凯鑫＆梨小娜2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f6985672d573" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="24.开局即巅峰，觉醒顶级神豪系统（79集）吕飞＆俞清蕾2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">24.开局即巅峰，觉醒顶级神豪系统（79集）吕飞＆俞清蕾2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9352912da56f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="25.醉时眠（64集）曲麒麟＆朱静2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">25.醉时眠（64集）曲麒麟＆朱静2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/763ca2341ddc" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="26.深夜沉沦（57集）程宇峰＆余逸蕾2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">26.深夜沉沦（57集）程宇峰＆余逸蕾2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/1d0c6659c8b4" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2343,15 +1651,15 @@
             <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="60.有诡拦车（32集）何子茜＆陈柏桦2026" 
+                     alt="27.天秤神女：万物皆可当（98集）张玉溪＆瑾萱2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">60.有诡拦车（32集）何子茜＆陈柏桦2026</h3>
+                <h3 class="movie-title">27.天秤神女：万物皆可当（98集）张玉溪＆瑾萱2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/ee930059a1e4" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/7fedba27a98d" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2359,18 +1667,94 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="61.爷爷的判官笔（44集）芝芝＆卢昱龙2026" 
+                     alt="28.人生选择系统，开局绑定前妻闺蜜（80集）王昱赫＆王煜菲2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">61.爷爷的判官笔（44集）芝芝＆卢昱龙2026</h3>
+                <h3 class="movie-title">28.人生选择系统，开局绑定前妻闺蜜（80集）王昱赫＆王煜菲2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/a1d737f74817" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/1f9d70188b12" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="29.净身出户后，前妻闺蜜助我逆袭（80集）梁诗琦＆张渊元2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">29.净身出户后，前妻闺蜜助我逆袭（80集）梁诗琦＆张渊元2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8a33bd160690" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="30.校花追我到末日（72集）孙雪阳＆杨子愉2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">30.校花追我到末日（72集）孙雪阳＆杨子愉2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4b97323539c3" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="31.师傅让我假结婚，我假戏真做（70集）刘宸羽＆朱梦茹2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">31.师傅让我假结婚，我假戏真做（70集）刘宸羽＆朱梦茹2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/d0cd3abee69c" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="32.夺情（61集）冯祥琨＆徐泠若2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">32.夺情（61集）冯祥琨＆徐泠若2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e4acbb8783d7" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2381,15 +1765,15 @@
             <div class="badge">收藏</div>
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="62.春运让座，我成了孩子亲爹（70集）陈亚萍＆赵洪2026" 
+                     alt="33.前夫有疾（70集）姜昊旻＆白野2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">62.春运让座，我成了孩子亲爹（70集）陈亚萍＆赵洪2026</h3>
+                <h3 class="movie-title">33.前夫有疾（70集）姜昊旻＆白野2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/70330555ca93" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/f96473a35798" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2400,15 +1784,623 @@
             
             <div class="movie-poster-container">
                 <img src="./img/shortvideo.png" 
-                     alt="63.让你修水管，你拿下高冷校花（75集）李源&李思源2026" 
+                     alt="34.说不出爱别说谎（71集）刘承林＆熊玉婷2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">63.让你修水管，你拿下高冷校花（75集）李源&李思源2026</h3>
+                <h3 class="movie-title">34.说不出爱别说谎（71集）刘承林＆熊玉婷2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/0e5f8303160b" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/233a037b558c" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="35.冒牌货她抢了我的地狱剧本（61集）秦萍＆甄增健2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">35.冒牌货她抢了我的地狱剧本（61集）秦萍＆甄增健2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9bb2ac792a63" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">高分</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="36.别惹大小姐，她妈最宠她（60集）赵美旋＆于清斌2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">36.别惹大小姐，她妈最宠她（60集）赵美旋＆于清斌2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e1be04467fa0" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="37.将军加个鸡腿，我帮你夺江山（73集）蒲雨童＆孙梓铖2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">37.将军加个鸡腿，我帮你夺江山（73集）蒲雨童＆孙梓铖2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/e9e079a0e44b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="38.假千金回贫民窟，带八个哥哥逆风翻盘（70集）王馨悦＆屈浩宇2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">38.假千金回贫民窟，带八个哥哥逆风翻盘（70集）王馨悦＆屈浩宇2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/5cdc60263638" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">高分</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="39.伴郎穿了我的新郎服，这婚我不结了（74集）杨文昊&刘爽2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">39.伴郎穿了我的新郎服，这婚我不结了（74集）杨文昊&刘爽2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/02e14200fdf6" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="40.让你下山救苍生，你上班摸鱼撩总裁（80集）陈丹&陈敬德2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">40.让你下山救苍生，你上班摸鱼撩总裁（80集）陈丹&陈敬德2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2c8723332828" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="41.神豪从签到开始（73集）闫薇儿&杜宇琪2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">41.神豪从签到开始（73集）闫薇儿&杜宇琪2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/003e76ef9872" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="42.我妈显灵后成了我的财神（86集）林筱艾&邱翔2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">42.我妈显灵后成了我的财神（86集）林筱艾&邱翔2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/a596fe7c4d6e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="43.直播算命：姑娘你有血光之灾（68集）郭笑然&赵阿东2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">43.直播算命：姑娘你有血光之灾（68集）郭笑然&赵阿东2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/dd949479a59a" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="44.人在女儿国，捧成香饽饽（67集）汪克强＆黄斯琪2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">44.人在女儿国，捧成香饽饽（67集）汪克强＆黄斯琪2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/40684d29e38f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="45.砸车救人被诬陷，我反手送她进监狱（61集）赵安第＆火鑫2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">45.砸车救人被诬陷，我反手送她进监狱（61集）赵安第＆火鑫2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/4155bec75d56" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="46.老婆请信我：我真的只想搞垮公司（70集）张星叙＆鹿瑶2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">46.老婆请信我：我真的只想搞垮公司（70集）张星叙＆鹿瑶2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/3100e6248ffc" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="47.两界玄幻吃苦都市享福（74集）尚璇＆徐嘉良2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">47.两界玄幻吃苦都市享福（74集）尚璇＆徐嘉良2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/b35c7d2b8dc1" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">经典</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="48.总裁老婆太厉害，我兵王身份没用（80集）刘照娅＆戚正2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">48.总裁老婆太厉害，我兵王身份没用（80集）刘照娅＆戚正2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f75cc077d3f4" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="49.天降九个绝世干妈后我摊牌了（65集）刘艺潼＆孙军＆王子亓2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">49.天降九个绝世干妈后我摊牌了（65集）刘艺潼＆孙军＆王子亓2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/1c625d2c251f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="50.夫人专治纨绔（70集）嘉言＆周昭昭2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">50.夫人专治纨绔（70集）嘉言＆周昭昭2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/daad954e169f" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="51.女帝古穿今，豪门全家都跪稳了（60集）李泽宇＆何田田2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">51.女帝古穿今，豪门全家都跪稳了（60集）李泽宇＆何田田2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f6e2d3082965" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="52.惹她干嘛，真千金有天道宠着（61集）代庭睿＆王美淇2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">52.惹她干嘛，真千金有天道宠着（61集）代庭睿＆王美淇2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/8748699b0ec1" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="53.真少爷中年回归，龙凤崽替爹争气（76集）朱艺莉＆李萌2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">53.真少爷中年回归，龙凤崽替爹争气（76集）朱艺莉＆李萌2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/353458f3db61" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="54.全村被毒翻我医圣身份曝光了（80集）吴晓茵＆周瑾阳2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">54.全村被毒翻我医圣身份曝光了（80集）吴晓茵＆周瑾阳2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/40d073d0e2f2" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="55.我回村悬壶济世却富可敌国（80集）郭菁妮＆王熠星2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">55.我回村悬壶济世却富可敌国（80集）郭菁妮＆王熠星2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/ef3aa0845a4e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="56.以娇色为饵（80集）柳宝灵＆姜铭怀＆李霖哲2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">56.以娇色为饵（80集）柳宝灵＆姜铭怀＆李霖哲2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/92d2f7419e2e" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="57.错把挚爱当旧梦（49集）樊磊＆杨小米2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">57.错把挚爱当旧梦（49集）樊磊＆杨小米2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/fc49a2fce7a7" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="58.假装的爱我不要（44集）王安忆＆李恒臻2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">58.假装的爱我不要（44集）王安忆＆李恒臻2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/acb917edcd9c" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="59.读我心后，全家觉醒（47集）苏俊宇＆云鹤2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">59.读我心后，全家觉醒（47集）苏俊宇＆云鹤2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/88a7abe3c979" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="60.皇室家族的秘密第一季（34集）王珍妮＆韩明原2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">60.皇室家族的秘密第一季（34集）王珍妮＆韩明原2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/5abac4e6b597" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="61.大婚当日，三个哥哥宠我护我全场（74集）周生昊＆徐亦澄2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">61.大婚当日，三个哥哥宠我护我全场（74集）周生昊＆徐亦澄2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/2b43442fe161" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="62.重生大年夜，岳父在颤抖（52集）谢佳成＆余颖2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">62.重生大年夜，岳父在颤抖（52集）谢佳成＆余颖2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/57c1f250e098" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="63.诡舍惊魂（44集）闫钧一＆高昕冉2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">63.诡舍惊魂（44集）闫钧一＆高昕冉2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/15e86936e8be" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="64.顽疾好治，人心难医（50集）思思＆卫腾宇2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">64.顽疾好治，人心难医（50集）思思＆卫腾宇2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/514cd042e19b" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="65.转身别后悔（38集）嘉乐＆黄立业2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">65.转身别后悔（38集）嘉乐＆黄立业2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/62f6cc2c5de7" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
+            <div class="movie-poster-container">
+                <img src="./img/shortvideo.png" 
+                     alt="66.后遗症（77集）张昊旸＆曹皓添＆牛湘鹭2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">66.后遗症（77集）张昊旸＆曹皓添＆牛湘鹭2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/7b27458a6330" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -2418,7 +2410,7 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 热门短剧, 电影数量: 63
+                分类: 热门短剧, 电影数量: 66
             </div>
         </section>
         
