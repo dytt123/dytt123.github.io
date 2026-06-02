@@ -751,7 +751,7 @@
         
         <header>
             <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
-            <p class="subtitle">May the Force be with you. 《星球大战》</p>
+            <p class="subtitle">让人类永远保持理智，确实是一种奢求。 《流浪地球》</p>
             
         </header>
         
@@ -782,11 +782,19 @@
                 <div class="calendar-grid">
                     
             <div class="calendar-day today active" 
+                 data-date="2026-06-02"
+                 data-count="2">
+                <div class="day-number">2026-06-02</div>
+                <div class="movie-count">新增2部</div>
+                <a href="index.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
                  data-date="2026-06-01"
                  data-count="18">
                 <div class="day-number">2026-06-01</div>
                 <div class="movie-count">新增18部</div>
-                <a href="index.html" class="day-link"></a>
+                <a href="202606/20260601.html" class="day-link"></a>
             </div>
             
             <div class="calendar-day past" 
@@ -1013,21 +1021,13 @@
                 <a href="202605/20260504.html" class="day-link"></a>
             </div>
             
-            <div class="calendar-day past" 
-                 data-date="2026-05-03"
-                 data-count="62">
-                <div class="day-number">2026-05-03</div>
-                <div class="movie-count">新增62部</div>
-                <a href="202605/20260503.html" class="day-link"></a>
-            </div>
-            
                 </div>
                 <div class="calendar-footer">
                     <div class="date-range">
                         <i class="fas fa-history"></i> 只显示最近30天数据
                     </div>
                     <div class="total-count">
-                        <i class="fas fa-film"></i> 最近30天累计: 871 部电影
+                        <i class="fas fa-film"></i> 最近30天累计: 811 部电影
                     </div>
                 </div>
             </div>
@@ -1035,408 +1035,16 @@
         
         
         <section class="category-section" 
-                data-category="国产电影" 
-                data-count="3"
+                data-category="国产剧集" 
+                data-count="2"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
                     <i class="fas fa-film"></i>
                 </div>
-                <h2 class="category-title">国产电影</h2>
+                <h2 class="category-title">国产剧集</h2>
                 <div class="category-count">
-                    <span>3 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/ffq45gbM9om6vYY4c9y4RFNwNMv.jpg" 
-                     alt="J寂静的朋友2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">J寂静的朋友2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/cec14804f960" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/ffq45gbM9om6vYY4c9y4RFNwNMv.jpg" 
-                     alt="J寂静的朋友2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">J寂静的朋友2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1PkoMaU6tmEddGumT08bKxg?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="X寻她2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">X寻她2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/30fb3173e8bb" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 国产电影, 电影数量: 3
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="日韩电影" 
-                data-count="4"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">日韩电影</h2>
-                <div class="category-count">
-                    <span>4 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/7BU7fwYUorWpEIafdeXwOngNDM6.jpg" 
-                     alt="D哆啦A梦：新·大雄的海底鬼岩城2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D哆啦A梦：新·大雄的海底鬼岩城2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/1e4a298d30c5" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/7BU7fwYUorWpEIafdeXwOngNDM6.jpg" 
-                     alt="D哆啦A梦：新·大雄的海底鬼岩城2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D哆啦A梦：新·大雄的海底鬼岩城2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/13f-F2hlTFSMdXeX1jmageQ?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">收藏</div>
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/sKnwnnmBpjo9BEskHtja6ToXUV1.jpg" 
-                     alt="T兔子2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">T兔子2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/3746f3d774d3" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/sKnwnnmBpjo9BEskHtja6ToXUV1.jpg" 
-                     alt="T兔子2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">T兔子2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1LKqi2M5Jx4JBBAM6vQYb0Q?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 日韩电影, 电影数量: 4
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="欧美电影" 
-                data-count="10"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">欧美电影</h2>
-                <div class="category-count">
-                    <span>10 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="C雌雄老匪2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">C雌雄老匪2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/e615d9262684" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="C雌雄老匪2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">C雌雄老匪2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1m1HBCJ1rr6kp_IgC15eAmA?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/4OUaqfpCFlmhwPjx3t1oJAdUTcD.jpg" 
-                     alt="D大师2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D大师2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/dbab391cda04" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/4OUaqfpCFlmhwPjx3t1oJAdUTcD.jpg" 
-                     alt="D大师2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D大师2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1YY9EnztDk32Bf_s9JBS0nQ?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">经典</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="M明亮的日子2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M明亮的日子2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/b2949bc6b23b" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="M明亮的日子2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M明亮的日子2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1hLvSFMjDh6i7JYbjEAQAUA?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="M盲警22026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M盲警22026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/5c78f49a70bb" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">高分</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="M盲警22026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M盲警22026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1b_plzfDxJchCO1ZLGx40Sw?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="X笑虐小丑2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">X笑虐小丑2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/3f8c80ec2097" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="X笑虐小丑2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">X笑虐小丑2026</h3>
-                <span class="download-type">百度</span>
-                <a href="https://pan.baidu.com/s/1uu2XB3V-PdBoDio1Ea1dUg?pwd=6666" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美电影, 电影数量: 10
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="热播综艺" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">热播综艺</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
+                    <span>2 部影片</span>
                 </div>
             </div>
             
@@ -1446,15 +1054,34 @@
             
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
-                     alt="B半熟恋人第5季2026" 
+                     alt="H欢迎回我的频道2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">B半熟恋人第5季2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/57280c531bab" class="download-btn" target="_blank">
+                <h3 class="movie-title">H欢迎回我的频道2026</h3>
+                <span class="download-type">百度</span>
+                <a href="https://pan.baidu.com/s/1UhlhJSNRppEKseyVVSqmXw?pwd=6666" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="S盛唐奇案2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">S盛唐奇案2026</h3>
+                <span class="download-type">百度</span>
+                <a href="https://pan.baidu.com/s/17ukcwkC2IiiFmR9K489Dzw?pwd=6666" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1464,7 +1091,7 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 热播综艺, 电影数量: 1
+                分类: 国产剧集, 电影数量: 2
             </div>
         </section>
         
