@@ -751,7 +751,7 @@
         
         <header>
             <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
-            <p class="subtitle">我们笑着说再见，却深知再见遥遥无期。 《海上钢琴师》</p>
+            <p class="subtitle">Every day is a good day when you run. 《阿甘正传》</p>
             
         </header>
         
@@ -783,9 +783,9 @@
                     
             <div class="calendar-day today active" 
                  data-date="2026-08-31"
-                 data-count="27">
+                 data-count="34">
                 <div class="day-number">2026-08-31</div>
-                <div class="movie-count">新增27部</div>
+                <div class="movie-count">新增34部</div>
                 <a href="index.html" class="day-link"></a>
             </div>
             
@@ -807,9 +807,9 @@
             
             <div class="calendar-day past" 
                  data-date="2026-08-28"
-                 data-count="11">
+                 data-count="10">
                 <div class="day-number">2026-08-28</div>
-                <div class="movie-count">新增11部</div>
+                <div class="movie-count">新增10部</div>
                 <a href="202608/20260828.html" class="day-link"></a>
             </div>
             
@@ -831,9 +831,9 @@
             
             <div class="calendar-day past" 
                  data-date="2026-08-25"
-                 data-count="15">
+                 data-count="14">
                 <div class="day-number">2026-08-25</div>
-                <div class="movie-count">新增15部</div>
+                <div class="movie-count">新增14部</div>
                 <a href="202608/20260825.html" class="day-link"></a>
             </div>
             
@@ -1027,7 +1027,7 @@
                         <i class="fas fa-history"></i> 只显示最近30天数据
                     </div>
                     <div class="total-count">
-                        <i class="fas fa-film"></i> 最近30天累计: 336 部电影
+                        <i class="fas fa-film"></i> 最近30天累计: 341 部电影
                     </div>
                 </div>
             </div>
@@ -1035,8 +1035,50 @@
         
         
         <section class="category-section" 
+                data-category="国产剧集" 
+                data-count="1"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">国产剧集</h2>
+                <div class="category-count">
+                    <span>1 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="X悬案2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">X悬案2026</h3>
+                <span class="download-type">百度</span>
+                <a href="https://pan.baidu.com/s/1qe7gs9tyOTdfYwAs4kuHgQ?pwd=6666" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 国产剧集, 电影数量: 1
+            </div>
+        </section>
+        <br>
+        <section class="category-section" 
                 data-category="国产电影" 
-                data-count="2"
+                data-count="5"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
@@ -1044,14 +1086,14 @@
                 </div>
                 <h2 class="category-title">国产电影</h2>
                 <div class="category-count">
-                    <span>2 部影片</span>
+                    <span>5 部影片</span>
                 </div>
             </div>
             
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">推荐</div>
+            <div class="badge">新上映</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/s0sC3hPPX4OobLNfdl2iSs2vtvI.jpg" 
                      alt="G给阿嬷的情书2026" 
@@ -1070,7 +1112,26 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="G给阿嬷的情书2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">G给阿嬷的情书2026</h3>
+                <span class="download-type">百度</span>
+                <a href="https://pan.baidu.com/s/1jqz3NzL4P6GoW-Bc_fYF7w?pwd=6666" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="H欢迎来到龙餐馆2026" 
@@ -1087,11 +1148,49 @@
             </div>
         </div>
         
+
+        <div class="movie-card">
+            <div class="badge">新上映</div>
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="H欢迎来道龙参馆2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">H欢迎来道龙参馆2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/aa32b5c14c36" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="Z抓T务2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">Z抓T务2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/f363b4382255" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
             </div>
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 国产电影, 电影数量: 2
+                分类: 国产电影, 电影数量: 5
             </div>
         </section>
         <br>
@@ -1112,7 +1211,7 @@
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="F飞到我心上2026" 
@@ -1150,7 +1249,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="Z重案六组：消失的警号2026" 
@@ -1177,7 +1276,7 @@
         <br>
         <section class="category-section" 
                 data-category="欧美剧集" 
-                data-count="4"
+                data-count="6"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
@@ -1185,14 +1284,14 @@
                 </div>
                 <h2 class="category-title">欧美剧集</h2>
                 <div class="category-count">
-                    <span>4 部影片</span>
+                    <span>6 部影片</span>
                 </div>
             </div>
             
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            
+            <div class="badge">经典</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W我叫古铁雷斯2026" 
@@ -1211,7 +1310,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W我叫古铁雷斯2026" 
@@ -1249,7 +1348,26 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="W我那些谎言的全部真相2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">W我那些谎言的全部真相2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/de2290ba8b17" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="Z帧凶2026" 
@@ -1266,17 +1384,36 @@
             </div>
         </div>
         
+
+        <div class="movie-card">
+            <div class="badge">推荐</div>
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="Z帧凶2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">Z帧凶2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/79594f4f7132" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
             </div>
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美剧集, 电影数量: 4
+                分类: 欧美剧集, 电影数量: 6
             </div>
         </section>
         <br>
         <section class="category-section" 
                 data-category="欧美电影" 
-                data-count="18"
+                data-count="19"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
@@ -1284,7 +1421,7 @@
                 </div>
                 <h2 class="category-title">欧美电影</h2>
                 <div class="category-count">
-                    <span>18 部影片</span>
+                    <span>19 部影片</span>
                 </div>
             </div>
             
@@ -1310,7 +1447,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="A阿尔法初次猎杀2026" 
@@ -1329,7 +1466,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">热门</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="B巴雷达灭门凶案2026" 
@@ -1348,7 +1485,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="B巴雷达灭门凶案2026" 
@@ -1367,7 +1504,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="H核战边缘2026" 
@@ -1424,7 +1561,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">经典</div>
+            
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/owuFDxJOG1nv3J2wMf5f5jQjqHn.jpg" 
                      alt="J警督巴比塔辛格2026" 
@@ -1443,7 +1580,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="N浓情库拉索2026" 
@@ -1464,6 +1601,25 @@
         <div class="movie-card">
             <div class="badge">收藏</div>
             <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="N浓情库拉索2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">N浓情库拉索2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9e98f2a15388" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            
+            <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/5hzLh3TS8XLZpNDlQ6fZGc2TPCn.jpg" 
                      alt="Q潜伏62026" 
                      class="movie-poster"
@@ -1481,7 +1637,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/5hzLh3TS8XLZpNDlQ6fZGc2TPCn.jpg" 
                      alt="Q潜伏62026" 
@@ -1519,7 +1675,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">经典</div>
+            <div class="badge">新上映</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="X血路姐弟2026" 
@@ -1538,7 +1694,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">收藏</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="X血路姐弟2026" 
@@ -1557,7 +1713,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">高分</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="Y异界魔盒2026" 
@@ -1595,7 +1751,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/a8dMcaFRQaY76nafuk2TpaIHKB3.jpg" 
                      alt="Y预见2026" 
@@ -1614,7 +1770,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/a8dMcaFRQaY76nafuk2TpaIHKB3.jpg" 
                      alt="Y预见2026" 
@@ -1635,7 +1791,7 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美电影, 电影数量: 18
+                分类: 欧美电影, 电影数量: 19
             </div>
         </section>
         
