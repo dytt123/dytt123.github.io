@@ -751,7 +751,7 @@
         
         <header>
             <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
-            <p class="subtitle">念念不忘，必有回响。 《一代宗师》</p>
+            <p class="subtitle">I'm walking here! I'm walking here! 《午夜牛郎》</p>
             
         </header>
         
@@ -783,9 +783,9 @@
                     
             <div class="calendar-day today active" 
                  data-date="2026-09-06"
-                 data-count="31">
+                 data-count="33">
                 <div class="day-number">2026-09-06</div>
-                <div class="movie-count">新增31部</div>
+                <div class="movie-count">新增33部</div>
                 <a href="index.html" class="day-link"></a>
             </div>
             
@@ -1027,7 +1027,7 @@
                         <i class="fas fa-history"></i> 只显示最近30天数据
                     </div>
                     <div class="total-count">
-                        <i class="fas fa-film"></i> 最近30天累计: 341 部电影
+                        <i class="fas fa-film"></i> 最近30天累计: 343 部电影
                     </div>
                 </div>
             </div>
@@ -1036,7 +1036,7 @@
         
         <section class="category-section" 
                 data-category="国产电影" 
-                data-count="3"
+                data-count="4"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
@@ -1044,14 +1044,33 @@
                 </div>
                 <h2 class="category-title">国产电影</h2>
                 <div class="category-count">
-                    <span>3 部影片</span>
+                    <span>4 部影片</span>
                 </div>
             </div>
             
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="S四渡2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">S四渡2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/a8678a1870af" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="movie-card">
+            <div class="badge">收藏</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="S山竹刀2026" 
@@ -1110,7 +1129,7 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 国产电影, 电影数量: 3
+                分类: 国产电影, 电影数量: 4
             </div>
         </section>
         <br>
@@ -1131,7 +1150,7 @@
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="L蓝色监狱2026" 
@@ -1150,7 +1169,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">热门</div>
+            
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/6fkVKq5LcZ6RJ4EaH84lJELDLJJ.jpg" 
                      alt="W未来2026" 
@@ -1176,6 +1195,48 @@
         </section>
         <br>
         <section class="category-section" 
+                data-category="最近热播电视剧" 
+                data-count="1"
+                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h2 class="category-title">最近热播电视剧</h2>
+                <div class="category-count">
+                    <span>1 部影片</span>
+                </div>
+            </div>
+            
+            <div class="movies-grid" style="opacity: 1; visibility: visible;">
+                
+        <div class="movie-card">
+            <div class="badge">热门</div>
+            <div class="movie-poster-container">
+                <img src="./img/hongbao.jpg" 
+                     alt="J交锋2026" 
+                     class="movie-poster"
+                     onerror="this.src=./img/hongbao.jpg">
+                <div class="movie-poster-overlay"></div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">J交锋2026</h3>
+                <span class="download-type">夸克</span>
+                <a href="https://pan.quark.cn/s/9369319958e1" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> 立即观看
+                </a>
+            </div>
+        </div>
+        
+            </div>
+            
+            <!-- 调试信息 -->
+            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
+                分类: 最近热播电视剧, 电影数量: 1
+            </div>
+        </section>
+        <br>
+        <section class="category-section" 
                 data-category="欧美电影" 
                 data-count="26"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
@@ -1192,7 +1253,7 @@
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="C苍蝇2026" 
@@ -1249,7 +1310,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">高分</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="H好莱坞地狱2026" 
@@ -1268,7 +1329,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">收藏</div>
+            
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/cO7J0XSVKPlAjUCMWC7DVBn1Py2.jpg" 
                      alt="H滑索惊魂2026" 
@@ -1287,7 +1348,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">收藏</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/cO7J0XSVKPlAjUCMWC7DVBn1Py2.jpg" 
                      alt="H滑索惊魂2026" 
@@ -1325,7 +1386,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">经典</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="H韩国死灵2026" 
@@ -1363,7 +1424,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">经典</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/pOdwaXV1w3vvTn1s7FTvqBQIDp.jpg" 
                      alt="J溅落之城2026" 
@@ -1382,7 +1443,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/6MzhVjAgqj4mA0FjzoECcBlLMB7.jpg" 
                      alt="Q求救信号2026" 
@@ -1420,7 +1481,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">高分</div>
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/znWUESPFa1QlvHii4Zc6d0pUxmH.jpg" 
                      alt="Q群狼绝境2026" 
@@ -1458,7 +1519,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">高分</div>
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/ecnepgL173pokuiBjDwTKDlrrug.jpg" 
                      alt="T逃亡者2026" 
@@ -1477,7 +1538,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">经典</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W我的荒野朋友2026" 
@@ -1496,7 +1557,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">热门</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W无事生情2026" 
@@ -1515,7 +1576,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">收藏</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W无事生情2026" 
@@ -1534,7 +1595,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">热门</div>
+            
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="W污点2026" 
@@ -1591,7 +1652,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">新上映</div>
+            <div class="badge">经典</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/eKw6aF7oNEaTnVvN396Q1is9R1n.jpg" 
                      alt="X邪蛛海滩2026" 
@@ -1610,7 +1671,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
                      alt="Z在鬼魂之地2026" 
@@ -1629,7 +1690,7 @@
         
 
         <div class="movie-card">
-            <div class="badge">推荐</div>
+            <div class="badge">新上映</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/nsihyCiAHotJ3G4NTSJcBuWLbzg.jpg" 
                      alt="Z坠落2：死点2026" 
@@ -1648,7 +1709,7 @@
         
 
         <div class="movie-card">
-            
+            <div class="badge">推荐</div>
             <div class="movie-poster-container">
                 <img src="https://image.tmdb.org/t/p/w500/nsihyCiAHotJ3G4NTSJcBuWLbzg.jpg" 
                      alt="Z坠落2：死点2026" 
