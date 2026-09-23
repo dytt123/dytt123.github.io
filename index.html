@@ -751,7 +751,7 @@
         
         <header>
             <h1><i class="fas fa-film"></i> 最新影视资源库</h1>
-            <p class="subtitle">我命由我不由天！ 《哪吒之魔童降世》</p>
+            <p class="subtitle">I see dead people. 《第六感》</p>
             
         </header>
         
@@ -782,11 +782,19 @@
                 <div class="calendar-grid">
                     
             <div class="calendar-day today active" 
+                 data-date="2026-09-23"
+                 data-count="2">
+                <div class="day-number">2026-09-23</div>
+                <div class="movie-count">新增2部</div>
+                <a href="index.html" class="day-link"></a>
+            </div>
+            
+            <div class="calendar-day past" 
                  data-date="2026-09-22"
                  data-count="8">
                 <div class="day-number">2026-09-22</div>
                 <div class="movie-count">新增8部</div>
-                <a href="index.html" class="day-link"></a>
+                <a href="202609/20260922.html" class="day-link"></a>
             </div>
             
             <div class="calendar-day past" 
@@ -1013,21 +1021,13 @@
                 <a href="202608/20260825.html" class="day-link"></a>
             </div>
             
-            <div class="calendar-day past" 
-                 data-date="2026-08-24"
-                 data-count="19">
-                <div class="day-number">2026-08-24</div>
-                <div class="movie-count">新增19部</div>
-                <a href="202608/20260824.html" class="day-link"></a>
-            </div>
-            
                 </div>
                 <div class="calendar-footer">
                     <div class="date-range">
                         <i class="fas fa-history"></i> 只显示最近30天数据
                     </div>
                     <div class="total-count">
-                        <i class="fas fa-film"></i> 最近30天累计: 318 部电影
+                        <i class="fas fa-film"></i> 最近30天累计: 301 部电影
                     </div>
                 </div>
             </div>
@@ -1051,18 +1051,18 @@
             <div class="movies-grid" style="opacity: 1; visibility: visible;">
                 
         <div class="movie-card">
-            
+            <div class="badge">新上映</div>
             <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/azv0T4WEDjaaRe7ZeiegUEsKMHs.jpg" 
-                     alt="Y一个部门的诞生2026" 
+                <img src="./img/hongbao.jpg" 
+                     alt="Q青铜天门之楼兰星骸2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">Y一个部门的诞生2026</h3>
+                <h3 class="movie-title">Q青铜天门之楼兰星骸2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/c45ae208e0c5" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/23feb8d3aaeb" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1077,56 +1077,14 @@
         </section>
         <br>
         <section class="category-section" 
-                data-category="日韩综艺" 
+                data-category="欧美剧集" 
                 data-count="1"
                 style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
             <div class="category-header">
                 <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
                     <i class="fas fa-film"></i>
                 </div>
-                <h2 class="category-title">日韩综艺</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            <div class="badge">热门</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="Q旗安84的奇趣民宿第二季2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">Q旗安84的奇趣民宿第二季2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/560e8750ce96" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 日韩综艺, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="最近热播电视剧" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">最近热播电视剧</h2>
+                <h2 class="category-title">欧美剧集</h2>
                 <div class="category-count">
                     <span>1 部影片</span>
                 </div>
@@ -1138,15 +1096,15 @@
             <div class="badge">高分</div>
             <div class="movie-poster-container">
                 <img src="./img/hongbao.jpg" 
-                     alt="F法医秦明之龙番往事2026" 
+                     alt="W无间兄弟情2026" 
                      class="movie-poster"
                      onerror="this.src=./img/hongbao.jpg">
                 <div class="movie-poster-overlay"></div>
             </div>
             <div class="movie-info">
-                <h3 class="movie-title">F法医秦明之龙番往事2026</h3>
+                <h3 class="movie-title">W无间兄弟情2026</h3>
                 <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/94be8db521b7" class="download-btn" target="_blank">
+                <a href="https://pan.quark.cn/s/95e83f593c41" class="download-btn" target="_blank">
                     <i class="fas fa-download"></i> 立即观看
                 </a>
             </div>
@@ -1156,171 +1114,7 @@
             
             <!-- 调试信息 -->
             <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 最近热播电视剧, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="欧美剧集" 
-                data-count="3"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">欧美剧集</h2>
-                <div class="category-count">
-                    <span>3 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            <div class="badge">经典</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="H火线家族2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">H火线家族2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/482f010506e1" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            <div class="badge">新上映</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="M密涅瓦学院2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M密涅瓦学院2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/05f81ff91fd5" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="X嫌疑爱人2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">X嫌疑爱人2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/1fe67c840570" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美剧集, 电影数量: 3
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="欧美电影" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">欧美电影</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            
-            <div class="movie-poster-container">
-                <img src="https://image.tmdb.org/t/p/w500/brmzdI8ETPrzNqlDw8DSpdGnJS4.jpg" 
-                     alt="M卖冰淇淋的人2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">M卖冰淇淋的人2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/2a052f5408f4" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 欧美电影, 电影数量: 1
-            </div>
-        </section>
-        <br>
-        <section class="category-section" 
-                data-category="热播综艺" 
-                data-count="1"
-                style="opacity: 1; transform: translateY(0); display: block; visibility: visible;">
-            <div class="category-header">
-                <div class="category-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
-                    <i class="fas fa-film"></i>
-                </div>
-                <h2 class="category-title">热播综艺</h2>
-                <div class="category-count">
-                    <span>1 部影片</span>
-                </div>
-            </div>
-            
-            <div class="movies-grid" style="opacity: 1; visibility: visible;">
-                
-        <div class="movie-card">
-            <div class="badge">推荐</div>
-            <div class="movie-poster-container">
-                <img src="./img/hongbao.jpg" 
-                     alt="D对味2026" 
-                     class="movie-poster"
-                     onerror="this.src=./img/hongbao.jpg">
-                <div class="movie-poster-overlay"></div>
-            </div>
-            <div class="movie-info">
-                <h3 class="movie-title">D对味2026</h3>
-                <span class="download-type">夸克</span>
-                <a href="https://pan.quark.cn/s/c9e1a1e3b105" class="download-btn" target="_blank">
-                    <i class="fas fa-download"></i> 立即观看
-                </a>
-            </div>
-        </div>
-        
-            </div>
-            
-            <!-- 调试信息 -->
-            <div style="display: none; margin-top: 10px; font-size: 12px; color: #666;">
-                分类: 热播综艺, 电影数量: 1
+                分类: 欧美剧集, 电影数量: 1
             </div>
         </section>
         
